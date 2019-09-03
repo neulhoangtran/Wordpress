@@ -1,0 +1,57 @@
+
+// Backgrounds
+$pure-black: #000;
+$bkg__blue: #3386CB;
+$bkg__light-blue: #13B5EA;
+$color__background-body: #fff;
+$color__background-input: #fff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: #0073aa;
+$color__background-button-hover: #111;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+$color__background-full: #f9f9f9;
+$color__background_selection: mix( $color__background-body, $color__background-button, 75% ); // lighten( salmon, 22.5% ); // lighten( #0999d4, 48% );
+$bkg__light-gray: #f2f2f2;
+$color-boxs:  rgba(31, 58, 118, 0.4);
+$bkg-slide : #213748;
+$color-boxsslide: rgba(42, 42, 42, 0.5);
+$bkg-black: rgba(0, 0, 0, 0.8);
+$bkg-blue:rgba(118, 218, 255, 0.8);
+$bkg-menu: rgba(6, 18, 32, 0.95);
+// Text
+$color__text-main: #111;
+$color__text-light: #767676;
+$color__text-hover: lighten( #111, 22.5% );
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$gray: #4A4A4A;
+$white: #fff;
+$blue: #235795;
+$dark-gray: #262626;
+$light-gray: #B3B3B3;
+$gray-gray: #9b9b9b;
+$color-active: #346094;
+$color-list: #2A5281;
+$dark-blue: #1F3A76;
+$light-blue: #418CCB;
+$color-hover: #76DAFF;
+$text-light: #636363;
+
+// Links
+$color__link: #0073aa;
+$color__link-visited: #0073aa;
+$color__link-hover: darken( $color__link, 10% );
+
+// Borders
+$border_input: #d7d7d7;
+$color__border: #ccc;
+$color__border-link: #0073aa;
+$color__border-link-hover: darken( $color__link, 10% );
+$color__border-button: #ccc #ccc #bbb;
+$color__border-button-hover: #ccc #bbb #aaa;
+$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-input: $color__border;
+$color__border-abbr: #666;

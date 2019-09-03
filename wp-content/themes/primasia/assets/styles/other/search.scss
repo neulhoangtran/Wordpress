@@ -1,0 +1,152 @@
+.search header.page-header {
+  margin-bottom: unset;
+  padding-top: 40px;
+}
+
+.search header.entry-header {
+  margin-top: unset !important;
+}
+
+.search footer.entry-footer {
+  margin-bottom: unset !important;
+  margin-top: unset;
+}
+
+.search-no-results input.search-field {
+  border-width: 1px;
+  height: 43px;
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+
+.search .entry {
+  margin-top: unset !important;
+}
+
+.search h2.entry-title::before {
+  margin-top: 8px;
+}
+
+.search .page-description {
+  margin-bottom: 16px;
+  font-family: ProximaNovaRegular,serif !important;
+}
+
+@media (max-width: 767px) {
+  .search h2.entry-title::before {
+      margin-top: unset;
+  }
+  .search .page-description {
+      margin-bottom: 16px;
+  }
+  .search .entry-content p {
+      margin-top: 0.15rem;
+  }
+  .search header.page-header {
+      margin-top: unset;
+  }
+}
+
+@media (min-width: 768px) {
+  .search .entry-content p {
+      margin-top: 0.15rem;
+      margin-bottom: 0.5rem;
+  }
+}
+
+//.search .entry-content p {
+  /* margin-top: 0.15rem; */
+  /* margin-bottom: 1rem; */
+//}
+
+
+
+.search svg.svg-icon {
+  position: relative;
+  top: -3px;
+}
+
+.search span.nav-next-text {
+  position: relative;
+  top: -6px;
+}
+
+.search #main {
+  margin-bottom: 46px;
+}
+
+.search input.search-submit {
+  position: relative;
+  top: -2px;
+  outline: 0 !important;
+}
+
+.search h1.page-title {
+  color: #262626 !important;
+}
+
+.search-no-results form.search-form {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.search-no-results .search-submit {
+  background: #005177 !important;
+  color: white !important;
+  padding-top: 9px;
+}
+
+.search-no-results .search-submit:hover {
+  background: #111 !important;
+}
+
+.search-no-results header.page-header {
+  text-align: center;
+}
+
+.search-no-results .page-content {
+  text-align: center;
+}
+
+.search-no-results .page-content {
+  margin-top: 24px !important;
+}
+
+.search .entry .entry-title {
+  font-family: ProximaNovaRegular,serif !important;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.search .entry-content {
+  font-family: ProximaNovaRegular,serif !important;
+}
+
+.search h1.page-title {
+  font-family: ProximaNovaRegular,serif !important;
+  font-weight: 700 !important;
+  font-size: 2em;
+}
+
+.search-no-results h1.page-title {
+  font-family: ProximaNovaRegular,serif !important;
+  font-weight: 700;
+}
+
+.search-no-results .page-content {
+  font-family: ProximaNovaRegular,serif !important;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.search .entry-content p {
+  margin-bottom: unset;
+}
+
+.search a.page-numbers {
+  color: #111;
+}
+
+.search a.page-numbers:hover {
+  color: #005177;
+}

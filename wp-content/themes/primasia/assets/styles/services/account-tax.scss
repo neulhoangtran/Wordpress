@@ -1,0 +1,412 @@
+@-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  
+.account-tax{
+    h3.title{
+        color: $dark-gray;
+        font-size: $font__h1;
+        font-weight: 400;
+        line-height: 34px;
+        letter-spacing: -0.5px;
+    }
+    section.section-1 {
+        padding-top: 100px;
+        .content {
+            color: $gray;
+            font-size: $font__h4;
+            font-weight: 400;
+            line-height: 31px;
+            p{
+                margin-bottom: 32px;
+            }
+        }
+        .image {
+            text-align: right;        
+        }
+        .text-bottom{
+            color: $color-active;
+            font-family: $font__title;
+            font-size: 33px;
+            font-weight: 400;
+            line-height: 38px;
+            letter-spacing: -0.5px;
+            margin-top: 100px;
+            max-width: 840px;
+            -webkit-animation: text-focus-in .6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in .6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+    }
+    .our-package{
+        padding-top: 110px;
+        .col-list{
+            padding-top: 40px;
+        }
+        .package-item {
+            text-align: center;
+            margin-bottom: 90px;
+        }
+        .name{
+            color: $dark-gray;
+            font-family: $font__heading;
+            font-size: $font__button;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: center;
+            margin-bottom: 3px;
+            margin-top: 20px;
+        }
+        .desc{
+            color: $gray;
+            font-size: $font-body;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: center;
+        }
+    }    
+    section.certified{
+        background: $blue;
+        color: $white;
+        padding: 40px 0 47px;
+        margin-top: 6.5%;
+        h3.title{
+            color: $white;
+        }
+        .desc{
+            font-size: $font__h4;
+            font-weight: 400;
+            line-height: 31px;
+            margin-bottom: 85px;
+        }
+        .text-wrap{
+            max-width: 575px;
+        }
+        .image-wrap{
+            margin-left: 13%;
+            margin-top: -30%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            z-index: 99;
+            &>img {
+                opacity: 0;
+            }
+        }
+        .box-wrap {
+            text-align: center;
+        }
+        .box-inner {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            width: 100%;
+            max-width: 250px;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-align: center;
+            align-items: center;
+            p{
+                color: $white;
+                font-family: $font__heading;
+                font-size: $font__button;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: center;
+                margin: 70px 0 0;
+            }
+        }
+        a.view-detail{
+            color: $white;
+            font-family: $font__bold;
+            font-size: $font__link;
+            font-weight: 400;
+            line-height: 30px;
+            outline: 0;
+            text-decoration: none;
+            &::after{
+                content: "";
+                width: 29px;
+                height: 20px;
+                background: url(../images/arr-right.svg) no-repeat center;
+                background-size: contain;
+                display: inline-block;
+                margin-left: 14px;
+                -webkit-transition: all .2s;
+                transition: all .2s;
+                vertical-align: middle;
+                margin-bottom: 4px;
+            }
+            &:hover::after{
+                margin-left: 29px;
+            }
+        }
+    }
+    .our-accounting-expert{
+        padding-top: 100px;
+        padding-bottom: 100px;
+        .section-title{
+            text-align: center;
+            color: $color-active;
+            margin-bottom: 54px;
+        }
+        .top-manager-item{
+            display: -ms-flexbox;
+            display: flex;
+            padding-left: 14%;
+            padding-bottom: 0;
+            -ms-flex-align: center;
+            align-items: center;       
+            .avat{
+                width: 150px;
+                -webkit-transition: all .6s;
+                transition: all .6s;
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+                border-radius: 50%;
+                img{
+                    height: 0;
+                    padding-top: 100%;
+                    width: 100%;
+                }
+                &:hover{
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                    -webkit-transition: all .6s;
+                    transition: all .6s;
+                }
+            }
+            .info{
+                padding-left: 40px;
+            }
+            .name{
+                font-size: $font__h1;
+                line-height: 34px;
+                letter-spacing: -0.5px;
+                margin-top: 0;
+            }
+            .position, a{
+                line-height: 1;
+            }
+            .link>div {
+                margin: 0;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+@media (min-width: $screen-md){
+    .account-tax{
+        .banner-hr .hr-cont {
+            bottom: 53px;
+        }
+    }
+}
+@media (max-width: $screen-md){    
+    .account-tax {
+        section.section-1 {
+            padding-top: 60px;
+            .text-bottom{
+                margin-top: 60px;
+            }
+        }
+        .our-package {
+            padding-top: 60px;
+        }
+        .our-accounting-expert {
+            .top-manager-item{
+                padding-left: 0;
+                display: block;
+                text-align: center;
+                .name{
+                    margin-top: 20px;
+                }
+                .avat{
+                    margin: 0 auto;
+                }
+                .info {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 991px){
+    .account-tax {
+        section.section-1 {
+            .image {
+                text-align: center;
+                margin: 40px 0 0;
+            }
+        }
+        section.certified{
+            h3.title {
+                margin-top: 60px;
+            }
+            .col-image {
+                -webkit-order: -1;
+                order: -1;
+            }
+            .image-wrap{
+                background-size: 0;
+                margin-left: 0;
+                margin-top: 0;
+                &>img{
+                    display: none;
+                }
+            }
+            .box-inner{
+                position: static;
+                max-width: 100%;
+                p{
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: $screen-xs-max){
+    .account-tax {
+        h3.title{
+            font-size: $font__text-link;
+            line-height: 30px;
+        }
+        .banner-hr{
+            background-position: right;
+        }
+        section.section-1 {
+            padding-top: 30px;
+            .image {
+                width: 100%;
+                margin: 35px 0 0;
+            }
+            .content {
+                font-size: $font-body;
+                line-height: 26px;
+                p{
+                    margin-bottom: 25px;
+                }
+            }
+            .text-bottom{
+                font-size: $font__h4;
+                line-height: 32px;
+            }
+        }
+        .our-package {
+            padding-top: 43px;
+            .name{
+                font-size: $font-body;
+                line-height: 24px;
+                text-align: left;
+                margin-top: 0;
+            }
+            .col-list {
+                padding-top: 19px;
+            }
+            .desc {
+                font-size: $font__size_base;
+                line-height: 22px;
+                text-align: left;
+            }
+            .package-item {
+                margin-bottom: 44px;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+                .logo {
+                    width: 60px;
+                    text-align: right;
+                    img {
+                        max-height: 60px;
+                    }
+                }
+                .item-wrap{
+                    padding-left: 30px;
+                    width: calc(100% - 60px);
+                    text-align: left;
+                }
+            }
+        }
+        section.certified{
+            margin-top: 15px;
+            padding: 60px 0;
+            .box-inner{
+                p{
+                    font-size: $font-body;
+                    margin-top: 30px;
+                }
+            }
+            h3.title {
+                margin-top: 63px;
+                margin-bottom: 0;
+            }
+            .desc{
+                font-size: $font-body;
+                line-height: 24px;
+                margin-bottom: 40px
+            }
+            a.view-detail{
+                font-size: $font__text-link;
+            }
+        }
+        .our-accounting-expert {
+            &.list-member{
+                padding-top: 61px;
+                padding-bottom: 0;
+            }
+            .section-title {
+                color: $color-active;
+                line-height: 30px;
+                margin-bottom: 30px;
+            }
+            .top-manager-item {
+                display: block;
+                padding-left: 0;
+                text-align: center;
+                margin-bottom: 60px;
+                .avat {
+                    width: 180px;
+                    margin: 0 auto;
+                }
+                .info {
+                    padding-left: 0;
+                }
+                .name {
+                    font-size: $font__text-link;
+                    line-height: 30px;
+                    margin-top: 34px;
+                    margin-bottom: 4px;
+                }
+                .position{
+                    margin-bottom: 26px;
+                }
+            }
+        }
+    }
+}

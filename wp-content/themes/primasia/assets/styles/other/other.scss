@@ -1,0 +1,325 @@
+// FAQ
+.page-template-faq-template {
+    .hr-cont {
+        .text-banner-hr {
+            color: $color-hover;
+        }
+    }
+}
+
+.frequently-asked-questions {
+    margin-bottom: 80px;
+    margin-top: 100px;
+    padding: 0 15px;
+}
+
+.title-topic {
+    max-width: 280px;
+    margin-bottom: 25px;
+    margin-right: 15px;
+    padding-right: 15px;
+}
+
+.left-content {
+    width: 31.5%;
+    position: relative;
+}
+
+.box-title {
+    width: 100%!important;
+}
+
+.box-title.fixed {
+    position: fixed;
+    top: 150px;
+}
+
+.box-title.bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.box-title-mobile {
+    display: none;
+}
+
+.title-topic a {
+    color: $dark-gray;
+    font-family: $font__bold;
+    font-size: $font__h4;
+    font-weight: 400;
+    line-height: 30px;
+    opacity: 0.25;
+    &:focus {
+        outline: none;
+        text-decoration: none;
+        opacity: 1;
+    }
+    &.active,
+    &:hover,
+    &:active {
+        opacity: 1;
+    }
+}
+
+.right-content {
+    width: 68.5%;
+    margin-top: -20px;
+}
+
+.box-question {
+    .question {
+        color: $dark-gray;
+        font-family: $font__heading;
+        font-size: $font__button;
+        font-weight: 400;
+        line-height: 25px;
+        position: relative;
+        padding: 20px 30px 20px 0;
+        margin: 0;
+        &:after {
+            content: "";
+            position: absolute;
+            right: 8px;
+            transform: rotate(0);
+            background: url(../images/icon-arrow.svg) no-repeat center;
+            width: 15px;
+            height: 15px;
+            background-size: contain;
+            top: 25px;
+            transition: transform .2s ease;
+        }
+        &.active {
+            border: 0;
+            margin-bottom: 0;
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    >div {
+        border-bottom: 1px solid #e2e2e2;
+        >p {
+            margin: 0;
+        }
+    }
+    .answer {
+        padding-bottom: 20px;
+        p {
+            font-family: $font_body;
+            font-size: $font-body;
+            font-weight: 400;
+            line-height: 23px;
+            margin-bottom: 0;
+            margin-top: 0px;
+            padding-right: 30px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .frequently-asked-questions {
+        .right-content,
+        .left-content {
+            width: 100%;
+        }
+        .box-title.fixed {
+            position: relative;
+            top: 0;
+        }
+        .box-title.bottom {
+            position: relative;
+            bottom: 0;
+        }
+        .box-title,
+        .box-question {
+            width: 100%;
+            &:after {
+                right: 0;
+            }
+        }
+        .title-topic {
+            max-width: 100%;
+            padding-right: 0;
+            margin-right: 0;
+        }
+        .box-title-mobile {
+            display: block;
+            width: 100%;
+            select {
+                background-color: $pure-black;
+                color: $white;
+                width: 100%;
+                height: 40px;
+                padding: 0 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .frequently-asked-questions {
+        margin-top: 35px;
+        margin-bottom: 60px;
+        .title-topic a {
+            font-size: $font__text-link;
+            line-height: 23px;
+            letter-spacing: -0.5px;
+        }
+        .box-question {
+            .question {
+                font-size: $font-body;
+                line-height: 24px;
+                padding: 20px 30px 20px 0;
+            }
+            .answer p {
+                font-size: $font__size_base;
+                line-height: 22px;
+                margin-top: 0;
+            }
+        }
+        .title-topic {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+// company-profile
+.page-template-company-profile {
+    .banner-hr .hr-cont {
+        bottom: 55px;
+    }
+}
+
+.company-profile-page {
+    max-width: 845px;
+    margin-bottom: 75px;
+    .box-content {
+        padding-bottom: 30px;
+        h5 {
+            color: $dark-gray;
+            font-family: $font__heading;
+            font-size: $font__h1;
+            line-height: 34px;
+            letter-spacing: -0.5px;
+            font-weight: 400;
+            margin: 0;
+            padding-bottom: 5px;
+            padding-top: 100px;
+        }
+        p {
+            color: $gray;
+            font-size: $font__h4;
+            font-weight: 400;
+            line-height: 31px;
+            font-family: $font__body;
+            margin-bottom: 31px;
+        }
+    }
+    .introduce {
+        padding-bottom: 88px;
+        p {
+            color: $color-active;
+            font-family: $font__title;
+            font-size: 33px;
+            font-weight: 400;
+            line-height: 38px;
+            letter-spacing: -0.5px;
+            margin: 0;
+            animation: text-focus-in .6s cubic-bezier(.55, .085, .68, .53) both;
+            -webkit-animation: text-focus-in .6s cubic-bezier(.55, .085, .68, .53) both;
+        }
+    }
+    .box-information {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .details {
+            width: 67%;
+        }
+        .information {
+            width: 33%;
+        }
+        h6 {
+            color: $color-active;
+            font-family: $font__heading;
+            font-size: $font__button;
+            font-weight: 400;
+            line-height: 25px;
+        }
+        p {
+            color: $gray;
+            font-family: $font__body;
+            font-size: $font__button;
+            font-weight: 400;
+            line-height: 25px;
+            border-left: 1px solid #d8d8d8;
+            padding-left: 15px;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .company-profile-page {
+        .box-information {
+            .information,
+            .details {
+                width: 100%;
+            }
+        }
+        .box-content {
+            padding-bottom: 0;
+        }
+        .introduce {
+            padding-bottom: 30px;
+        }
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 475px) {
+    .page-template-company-profile {
+        .banner-hr .hr-cont {
+            bottom: 25px;
+        }
+    }
+    .company-profile-page {
+        margin-bottom: 18px;
+        .box-content h5 {
+            padding-top: 30px;
+            padding-bottom: 0;
+            font-size: $font__text-link;
+            line-height: 32px;
+        }
+        .box-information h6 {
+            font-size: $font-body;
+        }
+        .box-content p {
+            font-size: $font-body;
+            line-height: 24px;
+            margin-bottom: 24px;
+        }
+        .introduce p {
+            line-height: 32px;
+            font-size: $font__h4;
+        }
+        .box-information p {
+            font-size: $font__size_base;
+            border-left: 0;
+            padding-left: 0;
+            line-height: 22px;
+            margin: 0;
+        }
+        .introduce {
+            padding-top: 35px;
+        }
+        .box-information {
+            h6 {
+                margin: 0;
+            }
+            .details {
+                margin-bottom: 45px;
+            }
+        }
+    }
+}

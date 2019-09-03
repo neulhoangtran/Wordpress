@@ -1,0 +1,72 @@
+.error404 .site-header {
+  background-color: #1f3a76;
+}
+
+.error404 .fixed-header {
+  background-color: white;
+}
+
+
+.error404 header.page-header {
+  margin-top: 150px;
+  text-align: center;
+  margin-left: unset;
+  margin-right: unset;
+  padding: 0 15px;
+  margin-bottom: 0;
+}
+
+.error404 h1.page-title {
+  margin: unset !important;
+  font-family: ProximaNovaRegular,serif !important;
+  font-size: 32px;
+  color: #262626 !important;
+}
+
+.error404 .page-content {
+  margin-left: unset !important;
+  margin-right: unset !important;
+  padding: 0 15px;
+  text-align: center;
+  margin-top: 20px !important;
+}
+
+.error404 .search-form {
+  margin-bottom: 24px;
+}
+
+.error404 input.search-submit {
+  position: relative;
+  top: -2px;
+  outline: 0 !important;
+  background: #005177 !important;
+  color: white !important;
+  padding-top: 9px;
+}
+
+.error404 input.search-submit:hover {
+  background: #111 !important;
+}
+
+.error404 input.search-field {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-width: 1px;
+  height: 43px;
+}
+
+.error404 .page-content {
+  font-family: ProximaNovaRegular,serif !important;
+  font-size: 18px !important;
+}
+
+.error404 input.search-submit {
+  font-family: ProximaNovaRegular,serif !important;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.error404 input.search-field {
+  font-family: ProximaNovaRegular,serif !important;
+}

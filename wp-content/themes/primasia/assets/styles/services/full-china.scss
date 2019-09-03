@@ -1,0 +1,526 @@
+.visible-mobile {
+    display: none !important;
+}
+
+.full-china.our-team {
+    .banner-hr {
+        .hr-cont {
+            bottom: 55px;
+        }
+        .text-banner-hr {
+            text-transform: capitalize;
+            font-weight: normal;
+        }
+    }
+}
+
+.full-china {
+    section {
+        padding: 40px 0;
+        h2 {
+            color: $dark-gray;
+            font-size: $font__h1;
+            font-weight: normal;
+            line-height: 34px;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+        p {
+            color: $gray;
+            font-family: $font__body;
+            font-size: $font__h4;
+            font-weight: normal;
+            line-height: 31px;
+            letter-spacing: 0.1px;
+            margin-bottom: 31px;
+        }
+    }
+    section.banner-hr {
+        margin-top: 0;
+        padding: 0;
+        margin-bottom: 46px;
+    }
+    .section-1 {
+        img {
+            margin: 15px 0 0;
+            float: right;
+        }
+    }
+    .why-us {
+        margin-top: 15px;
+        .why-us-item {
+            background: $color__background-full;
+            padding: 35px 35px 51px;
+            height: 100%;
+            h4.name {
+                color: $color-active;
+                font-family: $font__bold;
+                font-size: $font__h4;
+                font-weight: normal;
+                line-height: 30px;
+                text-align: center;
+            }
+            .desc {
+                color: $gray;
+                font-family: $font__body;
+                font-size: $font__button;
+                font-weight: normal;
+                line-height: 22px;
+                text-align: center;
+            }
+        }
+    }
+    section.why-us {
+        h2 {
+            margin-top: 0;
+        }
+    }
+    .our-china-pack {
+        margin-top: 56px;
+        padding-bottom: 0;
+        h2 {
+            margin-bottom: 21px;
+        }
+        .why-us-item {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 53px;
+            padding: 0 20px;
+            h4.name {
+                color: $dark-gray;
+                font-size: $font__button;
+                line-height: 24px;
+                text-align: center;
+                margin-top: 21px;
+                font-weight: normal;
+                letter-spacing: 0;
+                margin-bottom: 7px;
+            }
+            .desc {
+                color: $gray;
+                font-size: $font-body;
+                line-height: 23px;
+                text-align: center;
+            }
+        }
+        .our-china-pack-list {
+            margin-bottom: 105px;
+            &:last-child {
+                margin-bottom: 98px;
+                .col-item {
+                    padding-top: 8px;
+                }
+            }
+        }
+    }
+    .your-getaway-to-china {
+        padding-top: 0;
+        .baner-wrap {
+            position: relative;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 600px;
+            img.banner-image {
+                width: 100%;
+                vertical-align: top;
+                display: none;
+            }
+        }
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            left: 0;
+            width: 100%;
+            text-align: center;
+            h2 {
+                color: $white;
+                font-size: $font__large;
+                font-family: $font__bold;
+                font-weight: normal;
+                line-height: 34px;
+                text-align: center;
+                letter-spacing: -0.5px;
+                margin-bottom: 15px;
+                margin-top: 47px;
+            }
+            .desc {
+                max-width: 736px;
+                margin: 0 auto 94px;
+                color: $white;
+                font-family: $font__heading;
+                font-size: $font__h1;
+                font-weight: normal;
+                line-height: 35px;
+                text-align: center;
+            }
+            .view-detail {
+                color: $white;
+                font-family: $font__bold;
+                font-size: $font__h1;
+                font-weight: normal;
+                line-height: 30px;
+                background-position: center right;
+                background-repeat: no-repeat;
+                -webkit-transition: all .2s;
+                transition: all .2s;
+                &:hover {
+                    &:after {
+                        -webkit-transform: translateX(15px);
+                        -moz-transform: translateX(15px);
+                        transform: translateX(15px);
+                    }
+                }
+            }
+            .view-detail::after {
+                content: "";
+                width: 29px;
+                height: 20px;
+                background: url(../images/arr-right.svg) no-repeat center;
+                background-size: auto;
+                background-size: contain;
+                display: inline-block;
+                margin-left: 20px;
+                -webkit-transition: all .2s;
+                transition: all .2s;
+                vertical-align: middle;
+                margin-bottom: 3px;
+            }
+        }
+    }
+    .our-china-expert.list-member {
+        padding: 40px 0;
+        margin-top: 7px;
+        margin-bottom: 47px;
+    }
+    .list-member {
+        h2 {
+            color: $color-active;
+            font-family: $font__title;
+            font-size: $font__size-xxl;
+            font-weight: normal;
+            line-height: 35px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        .top-manager-item {
+            max-width: 500px;
+            margin: 58px auto 0;
+            padding-left: 37px;
+            .avat {
+                background-size: cover;
+                background-position: center;
+                border-radius: 50%;
+                width: 150px;
+                float: left;
+                margin-right: 49px;
+                -webkit-transition: all .6s;
+                transition: all .6s;
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    -moz-transform: scale(1.1);
+                    transform: scale(1.1);
+                    -webkit-transition: all .6s;
+                    transition: all .6s;
+                }
+            }
+            img {
+                float: left;
+                width: 100%;
+                height: 0;
+                opacity: 0;
+                padding-top: 100%;
+            }
+            .name {
+                color: $dark-gray;
+                font-family: $font__heading;
+                font-size: $font__h1;
+                font-weight: normal;
+                line-height: 34px;
+                letter-spacing: -0.5px;
+                margin: 0 0 3px;
+                padding-top: 25px;
+            }
+            .info {
+                .email {
+                    display: inline-block;
+                    margin-right: 21px;
+                    margin-left: 0;
+                }
+                .linkedIn {
+                    display: inline-block;
+                }
+                .position {
+                    margin-bottom: 20px;
+                }
+                a {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
+
+.equalHWrap {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.equalH {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ios-device {
+    .contact-section {
+        .contact-right {
+            background-attachment: unset;
+        }
+    }
+    .our-team {
+        .banner-hr {
+            background-attachment: unset;
+        }
+    }
+    .full-china {
+        .your-getaway-to-china {
+            .baner-wrap {
+                background-attachment: unset;
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .full-china {
+        .why-us {
+            .why-us-item {
+                padding: 20px 15px 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .full-china {
+        .why-us {
+            .why-us-item {
+                margin-top: 20px;
+                height: auto;
+            }
+        }
+        .our-china-pack {
+            .our-china-pack-list {
+                margin-bottom: 70px;
+                &:last-child {
+                    margin-bottom: 70px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .visible-mobile {
+        display: block !important;
+    }
+    .visible-desktop {
+        display: none !important;
+    }
+    .full-china.our-team {
+        .banner-hr {
+            .hr-cont {
+                bottom: 25px;
+            }
+        }
+        .why-us {
+            .why-us-item {
+                margin-top: 15px;
+                height: auto;
+                margin-top: 20px;
+                padding: 29px 35px 31px;
+                h4.name {
+                    font-size: $font-body;
+                    margin: 0;
+                    line-height: 30px;
+                }
+                .desc {
+                    font-size: $font__size_base;
+                    line-height: 22px;
+                }
+            }
+            margin-top: 13px;
+        }
+        section.banner-hr {
+            margin: 0;
+        }
+        section {
+            h2 {
+                font-size: $font__text-link;
+                margin-top: 0;
+                line-height: 32px;
+                margin-bottom: 0;
+            }
+            padding: 30px 0;
+            p {
+                font-size: $font-body;
+                line-height: 24px;
+                margin-bottom: 24px;
+            }
+        }
+        .section-1 {
+            img {
+                margin: 34px 0 0;
+            }
+        }
+        .our-china-pack {
+            margin-top: 14px;
+            .why-us-item {
+                padding: 0;
+                display: inline-block;
+                width: 100%;
+                vertical-align: top;
+                text-align: left;
+                margin-bottom: 30px;
+                .item-wrap {
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-align: center;
+                    align-items: center;
+                }
+                .logo {
+                    float: left;
+                    img {
+                        max-width: 60px;
+                        vertical-align: top;
+                    }
+                }
+                h4.name {
+                    clear: none;
+                    margin: 0px 0 2px 30px;
+                    text-align: left;
+                    font-size: $font-body;
+                    display: block;
+                }
+                .desc {
+                    margin: 0 0 0 30px;
+                    text-align: left;
+                    font-size: $font__size_base;
+                    line-height: 22px;
+                }
+            }
+            .sub-title {
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+            .our-china-pack-list {
+                margin: 0 0 7px;
+                &:last-child {
+                    margin: 0;
+                    .sub-title {
+                        margin-bottom: 23px;
+                    }
+                }
+            }
+        }
+        &.our-team {
+            .your-getaway-to-china {
+                padding: 0 0 30px;
+            }
+        }
+        .your-getaway-to-china {
+            .banner-content {
+                h2 {
+                    font-size: $font__text-link;
+                    margin-top: 0;
+                    line-height: 32px;
+                    margin-bottom: 0;
+                }
+                .desc {
+                    max-width: 100%;
+                    font-size: $font-body;
+                    line-height: 24px;
+                    margin: 22px 0px 74px;
+                }
+                .view-detail {
+                    font-size: $font__text-link;
+                    line-height: 30px;
+                }
+            }
+        }
+        .our-china-expert.list-member {
+            margin-top: 0px;
+            padding: 29px 0;
+        }
+        .list-member {
+            .top-manager-item {
+                .avat {
+                    width: 180px;
+                    margin: 0 auto;
+                    float: none;
+                }
+                img {
+                    margin: 0;
+                    float: none;
+                }
+                text-align: center;
+                padding: 0;
+                .name {
+                    font-size: $font__link;
+                    line-height: 36px;
+                    padding-top: 31px;
+                    margin-bottom: 0;
+                }
+                .info {
+                    .position {
+                        margin-bottom: 27px;
+                    }
+                    .email {
+                        margin-right: 27px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .page-template-full-china .our-china-pack .why-us-item h4.name {
+        color: #262626;
+        font-family: "ProximaNovaSemibold";
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+    }
+    .page-template-full-china .our-china-pack .why-us-item .desc {
+        color: #4a4a4a;
+        font-family: "ProximaNovaRegular";
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 23px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767.92px) {
+    .page-template-full-china .our-china-pack .why-us-item h4.name {
+        color: #262626;
+        font-family: "ProximaNovaSemibold";
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+    }
+    .page-template-full-china .our-china-pack .why-us-item .desc {
+        color: #4a4a4a;
+        font-family: "ProximaNovaRegular";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+    }
+}

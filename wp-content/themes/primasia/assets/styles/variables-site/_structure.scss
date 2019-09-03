@@ -1,0 +1,90 @@
+// Responsive widths.
+
+$size__spacing-unit: 1rem;
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+$size__site-margins: calc(10% + 60px);
+$size__site-tablet-content: calc(8 * (100vw / 12) - 28px);
+$size__site-desktop-content: calc(6 * (100vw / 12) - 28px);
+
+// Responsive widths.
+
+$mobile_width: 600px;
+$tablet_width: 768px;
+$desktop_width: 1168px;
+$wide_width: 1379px;
+
+
+//== Media queries breakpoints
+// Extra small screen / phone
+$screen-xs:                  320px !default;
+$screen-xs-min:              $screen-xs !default;
+$screen-mobile-min:          $screen-xs-min !default;
+
+$screen-xs-middle: 479px;
+// Small screen / tablet
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-tablet-min:          $screen-sm-min !default;
+
+$screen-sm-middle: 1023px;
+// Medium screen / desktop
+$screen-md:                  1024px !default;
+$screen-md-min:              $screen-md !default;
+$screen-desktop-min:         $screen-md-min !default;
+// Large screen / wide desktop
+$screen-lg:                  1441px !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// X-Large screen / wide desktop
+$screen-xl:                  1921px !default;
+$screen-xl-min:              $screen-xl !default;
+$screen-xl-desktop:          $screen-xl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-mobile-max:          $screen-xs-max !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-tablet-max:          $screen-sm-max !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-lg-max:              ($screen-xl-min - 1) !default;
+
+$desktop-width: $screen-desktop-min;
+$tablet-width: $screen-tablet-min;
+$mobile-width: $screen-mobile-max;
+//== Grid system
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         80px !default;
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+$grid-gutter-half:          $grid-gutter-width/2;
+$grid-gutter-quarter:       $grid-gutter-half/2;
+
+//== Container sizes
+$container-phone:              (100%) !default;
+$container-xs:                 $container-phone !default;
+// Small screen / tablet
+$container-tablet:             (688px + $grid-gutter-width) !default;
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet !default;
+// Medium screen / desktop
+$container-desktop:            (944px + $grid-gutter-width) !default;
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop !default;
+// Large screen / wide desktop
+$container-large-desktop:      (1200px + $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop !default;
+//== Media queries breakpoints
+$container-large-desktop-small:     ($container-large-desktop - 1) !default;//1279px
+$screen-tablet-min: 641px !default;
+$container-tablet-medium:             (800px + $grid-gutter-width) !default;//880px
+$screen-mobile-max: 640px !default;
