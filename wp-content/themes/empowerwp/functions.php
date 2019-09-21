@@ -244,9 +244,115 @@ add_action( 'after_setup_theme', function () {
 
     // add_filter('mesmerize_info_page_tabs', 'empower_info_page_tabs');
     // add_action('admin_menu','empower_remove_mesmerize_demos_menu_item',20);
-    // add_filter('cloudpress\customizer\feature_popups', 'empower_remove_demo_import_popup');
+	// add_filter('cloudpress\customizer\feature_popups', 'empower_remove_demo_import_popup');
+	
+
+		/*
+	* Creating a function to create our CPT
+	*/
 
 } );
+function custom_post_type() {
+	
+	// Set UI labels for Custom Post Type
+		$labels = array(
+			'name'                => _x( 'Thi Trắc Nghiệm', 'Post Type General Name', 'twentythirteen' ),
+			'singular_name'       => _x( 'quiz', 'Post Type Singular Name', 'twentythirteen' ),
+			'menu_name'           => __( 'Quiz', 'twentythirteen' ),
+			'parent_item_colon'   => __( 'Parent Movie', 'twentythirteen' ),
+			'all_items'           => __( 'All Quiz', 'twentythirteen' ),
+			'view_item'           => __( 'Xem Quiz', 'twentythirteen' ),
+			'add_new_item'        => __( 'Add New Quiz', 'twentythirteen' ),
+			'add_new'             => __( 'Add New', 'twentythirteen' ),
+			'edit_item'           => __( 'Edit Quiz', 'twentythirteen' ),
+			'update_item'         => __( 'Update Quiz', 'twentythirteen' ),
+			'search_items'        => __( 'Search Quiz', 'twentythirteen' ),
+			'not_found'           => __( 'Not Found', 'twentythirteen' ),
+			'not_found_in_trash'  => __( 'Not found in Trash', 'twentythirteen' ),
+		);
+		
+	// Set other options for Custom Post Type
+		
+		$args = array(
+			'label'               => __( 'quiz', 'twentythirteen' ),
+			'description'         => __( 'Quiz news and reviews', 'twentythirteen' ),
+			'labels'              => $labels,
+			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+			'hierarchical'        => false,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => true,
+			'show_in_admin_bar'   => true,
+			'menu_position'       => 2,
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => false,
+			'publicly_queryable'  => true,
+			'capability_type'     => 'page',
+			'taxonomies'          => array( 'quiz_categories' )
+		);
+		
+		// Registering your Custom Post Type
+		register_post_type( 'quiz', $args );
 
+		register_taxonomy(  
+			'quiz_categories',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+			'quiz',        //post type name
+			array(  
+				'hierarchical' => true,  
+				'label' => 'Quiz Categories',  //Display name
+				'query_var' => true,
+				'rewrite' => array(
+					'slug' => 'quiz', // This controls the base slug that will display before each term
+					'with_front' => false // Don't display the category base before 
+				)
+			)  
+		);
+	
+	}
+	
+	/* Hook into the 'init' action so that the function
+	* Containing our post type registration is not 
+	* unnecessarily executed. 
+	*/
+	
+	add_action( 'init', 'custom_post_type', 0 );
+
+	add_action( 'init', 'create_tag_taxonomies', 0 );
+
+//create two taxonomies, genres and tags for the post type "tag"
+function create_tag_taxonomies() 
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Quiz Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Quiz Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Quiz Tags' ),
+    'popular_items' => __( 'Popular Quiz Tags' ),
+    'all_items' => __( 'All Quiz Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Quiz Tag' ), 
+    'update_item' => __( 'Update Quiz Tag' ),
+    'add_new_item' => __( 'Add New Quiz Tag' ),
+    'new_item_name' => __( 'New Quiz Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove quiz tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used tags' ),
+    'menu_name' => __( 'Quiz Tags' ),
+  ); 
+
+  register_taxonomy('quiz tag','quiz',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'quiztag' ),
+  ));
+}
+
+?>
 
 
