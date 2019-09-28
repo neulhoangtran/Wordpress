@@ -11,10 +11,17 @@ mesmerize_get_header(); ?>
                 $rs = [];
                 $rss = [];
                 foreach ($_POST as $key => $value) {
-                    $rs[$key] = $value;
+                    
+                    if($key == 'rss'){
+                        $rs[$key] = $value;
+                    }
+                    else{
+                        $rss[$key] = $value;
+                    }
                 }
-               echo '<pre>';
-                    var_dump($rs); echo '</pre>';
+                    echo '<pre>';
+                    var_dump($rs);
+                     echo '</pre>';
                 ?>
 
                 <div class="rsss">
