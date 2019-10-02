@@ -10,17 +10,12 @@ mesmerize_get_header(); ?>
                 <?php 
                 $rs = [];
                 $rss = [];
-                foreach ($_POST as $key => $value) {
-                    
-                    if($key == 'rss'){
-                        $rs[$key] = $value;
-                    }
-                    else{
-                        $rss[$key] = $value;
-                    }
-                }
+                // foreach ($_POST as $key => $value) {
+                //     echo $key;
+                // }
+                echo $_POST["rs0"];
                     echo '<pre>';
-                    var_dump($rs);
+                    var_dump($_POST);
                      echo '</pre>';
                 ?>
 
@@ -50,7 +45,7 @@ mesmerize_get_header(); ?>
                             </table>
                         </div>
                         <div class="bt btn">
-                            <a href="#">Về trang chủ</a>
+                            <a href="#">Thi Lại</a>
                         </div>
                     </div>
                 </div>
@@ -60,3 +55,14 @@ mesmerize_get_header(); ?>
     </div>
 </div>
 <?php get_footer(); ?>
+<style type="text/css">
+    .rsss .content .btn{
+        text-align: right;
+        font-size: 14px;
+    }
+    .rsss .title h3 {
+        text-align: center;
+        display: block;
+        margin-bottom: 20px;
+    }
+</style>
