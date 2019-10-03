@@ -1,7 +1,25 @@
 <?php mesmerize_get_header(); 
 $a = get_field('cau_hoi_trac_nghiem');
 $randomResult = randomGen(0,count($a) - 1  ,20);
-; //generates 20 unique random numbers?>
+
+
+
+$taxonomy = 'quiz_categories';
+echo '<pre>';
+$terms = get_terms($taxonomy); // Get all terms of a taxonomy
+
+var_dump($terms);
+if ( $terms && !is_wp_error( $terms ) ) :
+
+?>
+    <ul>
+        <?php foreach ( $terms as $term ) { ?>
+
+            <li><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a></li>
+        <?php } ?>
+    </ul>
+<?php endif;?>
+
 <div class="content post-page">
     <div class="gridContainer">
         <div class="row">
@@ -55,8 +73,10 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
             var val2 = $(this).closest('.ans').find('input[type=hidden]');
             if(val == val2.val()){
                 $(this).closest('.sections').addClass('true');
+                $(this).closest('.sections').removeClass('false');
             }else{
                 $(this).closest('.sections').addClass('false');
+                $(this).closest('.sections').removeClass('true');
             }
         })
 
@@ -70,13 +90,23 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
                 falses = $('.sections.ans.false'),
                 point = 10 / 20,
                 score = trues.length * point ;
-                let classification = ['Giỏi' , 'Khá' , 'Trung Bình' , 'Yếu'];
-                console.log(point);
-                console.log(score);
+                let classification = '';
+                if(score > 7.9){
+                    classification = 'Giỏi';
+                }else if(score < 8 && score > 6.4){
+                    classification = 'Khá';
+                }else if(score < 6.5 && score > 4.5){
+                    classification = 'Trung Bình';
+                }else{
+                    classification = 'Yếu';
+                }
 
                 $('.result-table .true-ans').text(trues.length);
                 $('.result-table .false-ans').text(falses.length);
                 $('.result-table .scores').text(score);
+                $('.result-table .classification').text(classification);
+                $('.wrap-result-table').addClass('active');
+                $('html').addClass('not-scroll');
 
 
             }
@@ -84,6 +114,7 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
     })
 </script>
 
+<div class="wrap-result-table">
 <div class="content post-page result-table">
     <div class="gridContainer">
         <div class="row">
@@ -113,8 +144,9 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
                                 </tbody>
                             </table>
                         </div>
-                        <div class="bt btn">
-                            <a href="#">Thi Lại</a>
+                        <div class="bt btn re-tesst">
+                            <a href="http://localhost:8080/wp/Wordpress/">Về trang chủ</a>
+                            <a href="#" onClick="window.location.reload();">Thi Lại</a>
                         </div>
                     </div>
                 </div>
@@ -122,11 +154,64 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
         </div>
     </div>
 </div>
+</div>
 
 <?php get_footer(); ?>
 
 
 <style type="text/css">
+    .result-table{
+        /*display: none;*/
+    }
+
+    .wrap-result-table.active , .wrap-result-table.active:after {
+        display: block;
+    }
+    .wrap-result-table {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        overflow: hidden;
+        display: none;
+    }
+
+    .wrap-result-table:after {
+        background: #000;
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        opacity: .7;
+        display: none;
+    }
+
+    
+    html.not-scroll{
+        overflow: hidden;
+    }
+    .content.post-page.result-table {
+        position: absolute;
+        z-index: 999;
+        width: 80%;
+        max-width: 1200px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        
+    }
+
+
+    .content.post-page {
+        position: relative;
+        z-index: 9;
+    }
+    .result-table.active{
+        display: block;
+    }
     .bt {
         display: block;
         text-align: right;
@@ -164,6 +249,11 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
         padding-right: 15px;
     }
 
+    .qes h3{
+        color: #000;
+        font-size: 28px;
+        font-weight: 400;
+    }
     .qes {
         display: block;
         margin-bottom: 10px;
@@ -190,8 +280,8 @@ $randomResult = randomGen(0,count($a) - 1  ,20);
         box-shadow: none;
     }
     .rsss .content .btn{
-        text-align: right;
-        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
     }
     .rsss .title h3 {
         text-align: center;
