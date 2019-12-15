@@ -9,6 +9,16 @@ mesmerize_get_header();
 $post_type_obj = get_post_type_object('post');
 $postLabel = $post_type_obj->labels->name;
 $page_for_posts = get_option( 'page_for_posts' );
+
+
+echo '<pre>';
+
+var_dump(get_current_user_id());echo '</pre>';  
+
+
+
+
+// wpum_get_queried_user_id();
 ?>
 
 <section id="start">
