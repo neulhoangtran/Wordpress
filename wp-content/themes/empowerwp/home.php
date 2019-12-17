@@ -8,16 +8,113 @@ mesmerize_get_header();?>
     <div class="wrap-lds"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
     <div id="full" class="content-area">
         <main id="main" class="site-main" role="main">
+
+            <!-- lesson section -->
+            <div class="container">
+                <div class="list-lesson" >
+                    <?php
+                    $args_ = array(
+                        'post_type' => 'math',
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1
+                    );
+                    $posts_ = new WP_Query( $args_ ); 
+                    // echo '<pre>';
+                    // var_dump($posts_); die();
+                    ?>
+                    <?php if ($posts_->have_posts()) : ?>
+                    <div class="row">
+                    <header class="page-header col-md-6">
+                        <h2 class="grow"><?php echo 'Danh sách bài giảng' ?></h2>
+                    </header><!-- .page-header -->
+                    
+                    <div id="categories" class="list-categories col-md-6" style="position: relative;">
+                       <div class="content"> <div class="list-box" >
+                            <span class="current-cate"><?php echo ('Tất cả bài viết '); ?></span>
+                            <ul>
+                                <li class="item" >
+                                    <a  href="<?php global $wp; echo home_url($wp->request); ?>"><?php echo ('All'); ?>
+                                    </a>
+                                </li>
+                                 <?php
+                                 // while ($posts->have_posts()) : $posts->the_post();
+                                     // $categories = get_the_category();
+                                     $categories = get_terms( array(
+                                        'taxonomy' => 'math_categories',
+                                        'hide_empty' => false,
+                                        'order' => 'DESC'
+                                     ) );
+                                    foreach ($categories as $category) {
+                                        echo '<li class="item" ><a href="'.get_category_link($category->term_id).'">'.$category->name.'</a></li>';
+                                    }
+                                // endwhile;
+                                 ?>
+                            </ul>
+                        </div></div>
+                            
+                    </div></div>
+                    <div class="list-items-container list__lesson" info-main="list__lesson">
+                        <div class="row list-item">
+                            <?php
+
+                            // Start the Loop.
+                            while ($posts_->have_posts()) : $posts_->the_post();
+                                /*
+                                 * Include the Post-Format-specific template for the content.
+                                 * If you want to override this in a child theme, then include a file
+                                 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                                 */
+                                get_template_part('template-parts/content', 'newsroom');
+
+                            endwhile; // End the loop.
+                            ?>
+
+                        </div>
+                    <?php
+                    // global $posts_;
+                    if ($posts_->max_num_pages > 1) :  ?>
+                        <span class="nav-links">
+                            <?php
+
+                            $big = 999999999; // need an unlikely integer
+                            echo paginate_links(array(
+                                'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                                'format' => '?paged=%#%',
+                                'current' => max(1, get_query_var('paged')),
+                                'total' => $posts_->max_num_pages,
+                                'prev_next' => false,
+                                'show_all' => true,
+                            ));
+                            ?>
+                        </span>
+                    
+                    <div class="load-more">
+                        <button class="btn btn-loadmore"><?php echo ('Hiển thị thêm bài viết'); ?></button> 
+                    
+                        </div>
+                        <?php endif; ?>   
+                    <?php
+
+                    // If no content, include the "No posts found" template.
+                    else :
+                        get_template_part('template-parts/content', 'none');
+
+                    endif;
+                    ?>
+                </div>
+            </div>
+            <hr><br><br>
+            <!-- trắc nghiệm section -->
             <div class="container">
                 <?php if (have_posts()) : ?>
                 <div class="row">
                 <header class="page-header col-md-6">
-                    <h2 class="grow"><?php echo 'Bài Thi' ?></h2>
+                    <h2 class="grow"><?php echo 'Bài Thi Trắc Nghiệm' ?></h2>
                 </header><!-- .page-header -->
   
                 <div id="categories" class="list-categories col-md-6">
                    <div class="content"> <div class="list-box">
-                        <span class="current-cate"><?php echo ('All'); ?></span>
+                        <span class="current-cate"><?php echo ('Tất cả bài viết '); ?></span>
                         <ul>
                             <li class="item" >
                                 <a  href="<?php global $wp; echo home_url($wp->request); ?>"><?php echo ('All'); ?>
@@ -33,7 +130,7 @@ mesmerize_get_header();?>
                     </div></div>
                         
                 </div></div>
-                <div class="list-items-container">
+                <div class="list-items-container quiz" info-main="quiz">
                     <div class="row list-item">
                         <?php
 
@@ -69,8 +166,98 @@ mesmerize_get_header();?>
                     </span>
                
                 <div class="load-more">
-                    <button class="btn btn-loadmore"><?php echo ('Load More'); ?></button> 
+                    <button class="btn btn-loadmore"><?php echo ('Hiển thị thêm bài viết'); ?></button> 
            
+                    </div>
+                    <?php endif; ?>   
+                <?php
+
+                // If no content, include the "No posts found" template.
+                else :
+                    get_template_part('template-parts/content', 'none');
+
+                endif;
+                ?>
+            </div>
+            
+            <hr><br><br>
+            <div class="container">
+                <?php
+                $args = array(
+                    'post_type' => 'math_2',
+                    'post_status' => 'publish',
+                    'posts_per_page' => -1
+                );
+                $posts = new WP_Query( $args ); ?>
+                <?php if ($posts->have_posts()) : ?>
+                <div class="row">
+                <header class="page-header col-md-6">
+                    <h2 class="grow"><?php echo 'Bài Thi Tự Luận' ?></h2>
+                </header><!-- .page-header -->
+            
+                <div id="categories" class="list-categories col-md-6">
+                   <div class="content"> <div class="list-box">
+                        <span class="current-cate"><?php echo ('Tất cả bài viết '); ?></span>
+                        <ul>
+                            <li class="item" >
+                                <a  href="<?php global $wp; echo home_url($wp->request); ?>"><?php echo ('All'); ?>
+                                </a>
+                            </li>
+                             <?php
+                             // while ($posts->have_posts()) : $posts->the_post();
+                                 $categories = get_the_category();
+                                 $categories = get_terms( array(
+                                    'taxonomy' => 'math_2_categories',
+                                    'hide_empty' => false,
+                                    'order' => 'DESC'
+                                 ) );
+                                foreach ($categories as $category) {
+                                    echo '<li class="item" ><a href="'.get_category_link($category->term_id).'">'.$category->name.'</a></li>';
+                                }
+                            // endwhile;
+                             ?>
+                        </ul>
+                    </div></div>
+                        
+                </div></div>
+                <div class="list-items-container essay" info-main="essay">
+                    <div class="row list-item">
+                        <?php
+
+                        // Start the Loop.
+                        while ($posts->have_posts()) : $posts->the_post();
+                            /*
+                             * Include the Post-Format-specific template for the content.
+                             * If you want to override this in a child theme, then include a file
+                             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                             */
+                            get_template_part('template-parts/content', 'newsroom');
+
+                        endwhile; // End the loop.
+                        ?>
+
+                    </div>
+                <?php
+                global $posts;
+                if ($posts->max_num_pages > 1) :  ?>
+                    <span class="nav-links">
+                        <?php
+
+                        $big = 999999999; // need an unlikely integer
+                        echo paginate_links(array(
+                            'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                            'format' => '?paged=%#%',
+                            'current' => max(1, get_query_var('paged')),
+                            'total' => $posts->max_num_pages,
+                            'prev_next' => false,
+                            'show_all' => true,
+                        ));
+                        ?>
+                    </span>
+               
+                <div class="load-more">
+                    <button class="btn btn-loadmore"><?php echo ('Hiển thị thêm bài viết'); ?></button> 
+            
                     </div>
                     <?php endif; ?>   
                 <?php
@@ -129,7 +316,8 @@ get_footer();
             function loadMoreFunction(){
                 var a = $('.btn.btn-loadmore').click(function(){
                     let $this = $(this),
-                        currentPage = $('body .nav-links .page-numbers.current');
+                        currentSection = $(this).closest('.list-items-container').attr('info-main'),
+                        currentPage = $(this).closest('.list-items-container').find('.nav-links .page-numbers.current');
                         $('.wrap-lds').show();
                         $this.text('Loading...').addClass('loading');
                         currentPage.removeClass('current');
@@ -143,7 +331,8 @@ get_footer();
                                     type: "POST",
                                     url: href,
                                     success: function(response){
-                                        let content =  ($(response).find('.list-item .blog-item'));
+                                        let filterContent = '.' + currentSection + '.list-items-container .list-item .blog-item';
+                                        let content =  ($(response).find('' + filterContent));
                                         $this.text('Load more').removeClass('loading');
                                         if($('.three-col').length >0 ) {
                                             content.each(function( i ) {
@@ -180,6 +369,7 @@ get_footer();
                     event.preventDefault();
                     let $this = $(this),
                     href = $this.attr('href'),
+                    currentSection = $(this).closest('.list-items-container').attr('info-main'),
                     text = $this.text();
                     $this.parent().addClass('active').siblings().removeClass('active');
                     $this.closest('ul').removeClass('test');
@@ -191,8 +381,10 @@ get_footer();
                             type: "POST",
                             url: href,
                             success: function(response){
-                                let content =  $(response).find('.list-items-container').html();
-                                $('body .list-items-container').html(content);
+                                let filterContent = '.' + currentSection + '.list-items-container';
+                                let content =  $(response).find('' + filterContent).html();
+                                // let content =  $(response).find('.list-items-container');
+                                $(this).closest('.list-items-container').html(content);
                                 $('.wrap-lds').hide();
                                 loadMoreFunction();
                                 effectFunction();

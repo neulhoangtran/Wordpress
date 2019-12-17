@@ -252,21 +252,97 @@ add_action( 'after_setup_theme', function () {
 	*/
 
 } );
-function custom_post_type() {
+
+
+function events_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Bài giảng toán', 'Post Type General Name', 'text_domain' ),
+        'singular_name'         => _x( 'Bài giảng toán', 'Post Type Singular Name', 'text_domain' ),
+        'menu_name'             => __( 'Bài giảng toán', 'text_domain' ),
+        'name_admin_bar'        => __( 'Bài giảng toán', 'text_domain' ),
+        'archives'              => __( 'Item Archives', 'text_domain' ),
+        'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+        'all_items'             => __( 'Tất cả bài giảng', 'text_domain' ),
+        'add_new_item'          => __( 'Thêm bài mới', 'text_domain' ),
+        'add_new'               => __( 'Thêm bài mới', 'text_domain' ),
+        'new_item'              => __( 'Thêm bài mới', 'text_domain' ),
+        'edit_item'             => __( 'Sửa bài', 'text_domain' ),
+        'update_item'           => __( 'Cập nhật bài', 'text_domain' ),
+        'view_item'             => __( 'Xem bài', 'text_domain' ),
+        'search_items'          => __( 'Search Item', 'text_domain' ),
+        'not_found'             => __( 'Not found', 'text_domain' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+        'featured_image'        => __( 'Featured Image', 'text_domain' ),
+        'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+        'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+        'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+        'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+        'items_list'            => __( 'Items list', 'text_domain' ),
+        'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+        'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+    );
+    $args = array(
+        'label'                 => __( 'math', 'text_domain' ),
+        'description'           => __( 'Bài giảng toán', 'text_domain' ),
+        'labels'                => $labels,
+        'supports'              => array('title', 'thumbnail', 'editor' ),
+        'taxonomies'            => array('math_categories'),
+        'hierarchical'          => true,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 2,
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => 'math',        
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'math', $args );
+
+}
+add_action( 'init', 'events_post_type', 0 );
+
+
+//EVENTS TAXONOMY
+function events_taxonomy() {  
+    register_taxonomy(  
+        'math_categories',  
+        'math',        
+        array(  
+            'hierarchical' => true,  
+            'label' => 'Danh mục',
+            'query_var' => true,
+            'rewrite' => array(
+                'slug' => 'math', 
+                'with_front' => false 
+            )
+        )  
+    );  
+}  
+add_action( 'init', 'events_taxonomy');
+
+	// add_action( 'init', 'create_tag_taxonomies', 0 );
+
+
+	function custom_post_type_2() {
 	
 	// Set UI labels for Custom Post Type
 		$labels = array(
-			'name'                => _x( 'Thi Trắc Nghiệm', 'Post Type General Name', 'twentythirteen' ),
-			'singular_name'       => _x( 'quiz', 'Post Type Singular Name', 'twentythirteen' ),
-			'menu_name'           => __( 'Quiz', 'twentythirteen' ),
+			'name'                => _x( 'Thi tự luận', 'Post Type General Name', 'twentythirteen' ),
+			'singular_name'       => _x( 'math_2', 'Post Type Singular Name', 'twentythirteen' ),
+			'menu_name'           => __( 'Thi tự luận', 'twentythirteen' ),
 			'parent_item_colon'   => __( 'Parent Movie', 'twentythirteen' ),
-			'all_items'           => __( 'All Quiz', 'twentythirteen' ),
-			'view_item'           => __( 'Xem Quiz', 'twentythirteen' ),
-			'add_new_item'        => __( 'Add New Quiz', 'twentythirteen' ),
-			'add_new'             => __( 'Add New', 'twentythirteen' ),
-			'edit_item'           => __( 'Edit Quiz', 'twentythirteen' ),
-			'update_item'         => __( 'Update Quiz', 'twentythirteen' ),
-			'search_items'        => __( 'Search Quiz', 'twentythirteen' ),
+			'all_items'           => __( 'Tất cả bài thi', 'twentythirteen' ),
+			'view_item'           => __( 'Xem', 'twentythirteen' ),
+			'add_new_item'        => __( 'Thêm bài mới', 'twentythirteen' ),
+			'add_new'             => __( 'Thêm bài mới', 'twentythirteen' ),
+			'edit_item'           => __( 'Sửa bài', 'twentythirteen' ),
+			'update_item'         => __( 'Cập nhật bài', 'twentythirteen' ),
+			'search_items'        => __( 'Tìm bài', 'twentythirteen' ),
 			'not_found'           => __( 'Not Found', 'twentythirteen' ),
 			'not_found_in_trash'  => __( 'Not found in Trash', 'twentythirteen' ),
 		);
@@ -274,8 +350,8 @@ function custom_post_type() {
 	// Set other options for Custom Post Type
 		
 		$args = array(
-			'label'               => __( 'quiz', 'twentythirteen' ),
-			'description'         => __( 'Quiz news and reviews', 'twentythirteen' ),
+			'label'               => __( 'math_2', 'twentythirteen' ),
+			'description'         => __( 'Thi tụ luận', 'twentythirteen' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
 			'hierarchical'        => false,
@@ -290,21 +366,21 @@ function custom_post_type() {
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'page',
-			'taxonomies'          => array( 'quiz_categories' )
+			'taxonomies'          => array( 'math_2_categories' )
 		);
 		
 		// Registering your Custom Post Type
-		register_post_type( 'quiz', $args );
+		register_post_type( 'math_2', $args );
 
 		register_taxonomy(  
-			'quiz_categories',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
-			'quiz',        //post type name
+			'math_2_categories',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+			'math_2',        //post type name
 			array(  
 				'hierarchical' => true,  
-				'label' => 'Quiz Categories',  //Display name
+				'label' => 'Danh mục Thi tự luận',  //Display name
 				'query_var' => true,
 				'rewrite' => array(
-					'slug' => 'quiz', // This controls the base slug that will display before each term
+					'slug' => 'math_2', // This controls the base slug that will display before each term
 					'with_front' => false // Don't display the category base before 
 				)
 			)  
@@ -317,41 +393,41 @@ function custom_post_type() {
 	* unnecessarily executed. 
 	*/
 	
-	add_action( 'init', 'custom_post_type', 0 );
+	add_action( 'init', 'custom_post_type_2', 0 );
 
-	add_action( 'init', 'create_tag_taxonomies', 0 );
+	// add_action( 'init', 'create_tag_taxonomies', 0 );
 
 //create two taxonomies, genres and tags for the post type "tag"
-function create_tag_taxonomies() 
-{
-  // Add new taxonomy, NOT hierarchical (like tags)
-  $labels = array(
-    'name' => _x( 'Quiz Tags', 'taxonomy general name' ),
-    'singular_name' => _x( 'Quiz Tag', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Quiz Tags' ),
-    'popular_items' => __( 'Popular Quiz Tags' ),
-    'all_items' => __( 'All Quiz Tags' ),
-    'parent_item' => null,
-    'parent_item_colon' => null,
-    'edit_item' => __( 'Edit Quiz Tag' ), 
-    'update_item' => __( 'Update Quiz Tag' ),
-    'add_new_item' => __( 'Add New Quiz Tag' ),
-    'new_item_name' => __( 'New Quiz Tag Name' ),
-    'separate_items_with_commas' => __( 'Separate tags with commas' ),
-    'add_or_remove_items' => __( 'Add or remove quiz tags' ),
-    'choose_from_most_used' => __( 'Choose from the most used tags' ),
-    'menu_name' => __( 'Quiz Tags' ),
-  ); 
+// function create_tag_taxonomies() 
+// {
+//   // Add new taxonomy, NOT hierarchical (like tags)
+//   $labels = array(
+//     'name' => _x( 'Quiz Tags', 'taxonomy general name' ),
+//     'singular_name' => _x( 'Quiz Tag', 'taxonomy singular name' ),
+//     'search_items' =>  __( 'Search Quiz Tags' ),
+//     'popular_items' => __( 'Popular Quiz Tags' ),
+//     'all_items' => __( 'All Quiz Tags' ),
+//     'parent_item' => null,
+//     'parent_item_colon' => null,
+//     'edit_item' => __( 'Edit Quiz Tag' ), 
+//     'update_item' => __( 'Update Quiz Tag' ),
+//     'add_new_item' => __( 'Add New Quiz Tag' ),
+//     'new_item_name' => __( 'New Quiz Tag Name' ),
+//     'separate_items_with_commas' => __( 'Separate tags with commas' ),
+//     'add_or_remove_items' => __( 'Add or remove quiz tags' ),
+//     'choose_from_most_used' => __( 'Choose from the most used tags' ),
+//     'menu_name' => __( 'Quiz Tags' ),
+//   ); 
 
-  register_taxonomy('quiz tag','quiz',array(
-    'hierarchical' => false,
-    'labels' => $labels,
-    'show_ui' => true,
-    'update_count_callback' => '_update_post_term_count',
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'quiztag' ),
-  ));
-}
+//   register_taxonomy('quiz tag','quiz',array(
+//     'hierarchical' => false,
+//     'labels' => $labels,
+//     'show_ui' => true,
+//     'update_count_callback' => '_update_post_term_count',
+//     'query_var' => true,
+//     'rewrite' => array( 'slug' => 'quiztag' ),
+//   ));
+// }
 
 function randomGen($min, $max, $quantity) {
     $numbers = range($min, $max);
@@ -506,3 +582,44 @@ function wp_enqueue_assets()
     wp_enqueue_script('script-visible', get_stylesheet_directory_uri().'/js/jquery.visible.js', array('jquery'));
 }
 add_action('wp_enqueue_scripts', 'wp_enqueue_assets');
+
+
+function wp_is_loggined(){
+	if ($loggined = wp_get_current_user()->data->user_login) {
+		return true;
+	}
+	return false;
+}
+function get_customer_info(){
+	return wp_get_current_user();
+}
+
+
+function revcon_change_post_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Trắc Nghiệm';
+    $submenu['edit.php'][5][0] = 'Trắc Nghiệm';
+    $submenu['edit.php'][10][0] = 'Thêm bài';
+    $submenu['edit.php'][16][0] = 'Tags';
+}
+function revcon_change_post_object() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Trắc Nghiệm';
+    $labels->singular_name = 'Trắc Nghiệm';
+    $labels->add_new = 'Thêm bài';
+    $labels->add_new_item = 'Thêm bài';
+    $labels->edit_item = 'Sửa bài';
+    $labels->new_item = 'Trắc Nghiệm';
+    $labels->view_item = 'Xem Bài Trắc Nghiệm';
+    $labels->search_items = 'Search Trắc Nghiệm';
+    $labels->not_found = 'No News found';
+    $labels->not_found_in_trash = 'No News found in Trash';
+    $labels->all_items = 'All Trắc Nghiệm';
+    $labels->menu_name = 'Trắc Nghiệm';
+    $labels->name_admin_bar = 'Trắc Nghiệm';
+}
+ 
+add_action( 'admin_menu', 'revcon_change_post_label' );
+add_action( 'init', 'revcon_change_post_object' );

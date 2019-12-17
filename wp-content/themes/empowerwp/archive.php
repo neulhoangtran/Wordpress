@@ -65,7 +65,7 @@ $post_query = new WP_Query($argss);
                         </span>
                    
                     <div class="load-more">
-                        <button class="btn btn-loadmore"><?= __('Load More'); ?></button> 
+                        <button class="btn btn-loadmore"><?= __('Hiển thị thêm bài viết'); ?></button> 
                
                         </div>
                         <?php endif; ?>

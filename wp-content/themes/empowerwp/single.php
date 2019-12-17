@@ -6,19 +6,19 @@
  * @since 1.0.0
  */
 mesmerize_get_header();
+?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<?php 
 $post_type_obj = get_post_type_object('post');
 $postLabel = $post_type_obj->labels->name;
 $page_for_posts = get_option( 'page_for_posts' );
 
 
-echo '<pre>';
-
-var_dump(get_current_user_id());echo '</pre>';  
-
-
+$check_loggin = wp_is_loggined();
 
 
 // wpum_get_queried_user_id();
+if($check_loggin) : 
 ?>
 
 <section id="start">
@@ -95,9 +95,7 @@ var_dump(get_current_user_id());echo '</pre>';
 	</main><!-- #main -->
 </section><!-- #primary -->
 
-<?php
-get_footer();
-?>
+
 <script>
     jQuery(document).ready(function($){
         $('input[type=radio]').change(function(){
@@ -564,3 +562,108 @@ get_footer();
 	}
 
 </style>
+<?php else : ?>
+
+<section id="primary" class="content-area">
+	<main id="main" class="site-main">
+		<div class="container top-content not-loggin">
+			<div class="content">
+				<h3><?php echo 'Vui Lòng đăng nhập hoặc đăng ký để thi !' ;?></h3>
+				<div class="bt">
+					<a href="<?php echo get_site_url() . '/login'?>" class="login" data-link="login">Đăng nhập</a>
+					<a href="<?php echo get_site_url() . '/register' ;?>" class="create" data-link="create">Đăng ký</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</section>
+<script>
+	jQuery(document).ready(function($){
+		$('.container.top-content.not-loggin .content .bt a').click(function(){
+			event.preventDefault();
+			let pageRedirect =	window.location.href;
+			let link = $(this).attr('href');
+            let date = new Date();
+            let day = 0.001;
+            date.setTime(date.getTime() + (day * 24 * 3600 * 1000 ));
+            $.cookie("last-page", pageRedirect , { expires: date }, 'http://localhost:8080/wp/Wordpress/');
+            window.location = link;
+		})
+	});
+</script>
+<style>
+	.container.top-content{
+	    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #862077), color-stop(100%, #140027));
+	    background-image: -webkit-linear-gradient(#862077, #140027);
+	    background-image: -moz-linear-gradient(#862077, #140027);
+	    background-image: -o-linear-gradient(#862077, #140027);
+	    background-image: linear-gradient(#862077, #140027);
+	}
+	.container.top-content.not-loggin {
+	    min-height: 40vh;
+	}
+	.container.top-content.not-loggin .content {
+	    max-width: 500px;
+	    margin: 50px auto;
+	    display: flex;
+	    /* margin: 50px; */
+	    flex-wrap: wrap;
+        background: transparent;
+	}
+
+	.container.top-content.not-loggin .content h3 {
+	    width: 100%;
+	    text-align: center;
+	    color: #fff;
+	    font-weight: bold;
+	    font-size: 24px;
+	    text-transform: uppercase;
+	    line-height: 32px;
+	}
+	.container.top-content.not-loggin .content .bt a:hover {
+		-webkit-transition: color 200ms linear;
+		    -moz-transition: color 200ms linear;
+		    -o-transition: color 200ms linear;
+		    transition: color 200ms linear;
+		    -webkit-transition: text-shadow 500ms linear;
+		    -moz-transition: text-shadow 500ms linear;
+		    -o-transition: text-shadow 500ms linear;
+		    transition: text-shadow 500ms linear;
+		    color: #caadd2;
+		    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 0 10px rgba(223, 206, 228, 0.4), 0 0 2px #2a153c;
+	}
+	.container.top-content.not-loggin .content .bt a {
+	    width: 200px;
+        text-transform: uppercase;
+        font-weight: bold;
+	    display: block;
+	    padding: 10px 15px;
+	    background: #00abfa;
+	    color: #fff;
+	    text-align: center;
+	    border-radius: 5px;
+	    font-size: 22px;
+	    text-decoration: none;
+	    -webkit-box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+    -moz-box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+    box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3b2751), color-stop(100%, #271739));
+    background-image: -webkit-linear-gradient(#3b2751, #271739);
+    background-image: -moz-linear-gradient(#3b2751, #271739);
+    background-image: -o-linear-gradient(#3b2751, #271739);
+    background-image: linear-gradient(#3b2751, #271739);
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+	}
+
+	.container.top-content.not-loggin .bt {
+	    max-width: 500px;
+	    width: 100%;
+	    display: flex;
+	    justify-content: space-around;
+	}
+</style>
+<?php endif; ?>
+
+<?php
+get_footer();
+?>
